@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%); }
+
+.landing {
+    min-height: 100vh;
+}
+
+.header {
+    background-color: white;
+    padding: 2rem;
+    z-index: 99;
+}
+
+#logo {
+    display: block;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(auto, 300px);
+}
+
+.image {
+    background-image: url("/images/hero-mobile.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.text {
+    text-align: center;
+    color: hsl(0, 36%, 70%);
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    order: 1;
+}
+
+.text h1 {
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 2.8rem;
+    z-index: 999;
+}
+
+.emphasis {
+    color: hsl(0, 6%, 24%);
+    font-weight: 700;
+}
+
+.text > p {
+    line-height: 1.5rem;
+    margin: 1rem 0;
+    z-index: 999;
+}
+
+form {
+    position: relative;
+    margin-top: 2rem;
+}
+
+#email {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    border-radius: 2rem;
+    outline: none;
+    border: 2px solid rgb(241, 227, 230);
+    background: transparent;
+}
+
+#email::placeholder {
+    color: rgb(241, 227, 230);
+    font-weight: 400; 
+}
+
+#email.error {
+    border: 2px solid hsl(0, 93%, 68%);
+    background-image: url("/images/icon-error.svg");
+    background-repeat: no-repeat;
+    background-position: 78% center;
+}
+
+#email.valid {
+    border: 2px solid rgb(0, 160, 0);
+}
+
+#submit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(10px);
+    width: 70px;
+    height: 100%;
+    background: linear-gradient(135deg,hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#submit-button:hover {
+    background: rgb(250, 214, 214);
+    box-shadow: 0 10px 1rem 0 hsl(0, 36%, 70%);
+}
+
+.result p {
+    text-align: left;
+    padding: 1rem 1.5rem;
+    font-size: .8rem;
+    position: relative;
+}
+
+.result p.error {
+    color: hsl(0, 93%, 68%);
+}
+
+.result p.valid {
+    color: rgb(0, 160, 0);
+}
+
+@media (min-width: 600px) {
+    #email.error {
+        background-position: 88% center;
+    }
+}
+
+@media (min-width:900px) {
+    .header {
+        position: absolute;
+        background: none;
+        padding: 2rem 5rem;
+    }
+
+    main {
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-rows: 100vh;
+    }
+
+    .image {
+        background-image: url("/images/hero-desktop.jpg");
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding: 2rem 5rem;
+        position: relative;
+        order: 0;
+    }
+
+    .overlay {
+        background-image: url("/images/bg-pattern-desktop.svg");
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    #email.error {
+        background-position: 80% center;
+    }
+
+    #submit-button {
+        width: 80px;
+    }
+
+    .text h1 {
+        font-size: 4rem;
+        line-height: 4.5rem;
+        letter-spacing: 1rem;
+        margin-top: 5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header, .text {
+        padding: 2rem 11rem;
+    }
+
+    .text p, form {
+        width: 90%;
+    }
+}
