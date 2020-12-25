@@ -10,7 +10,20 @@ emailField.addEventListener("keypress", e => {
     }
 })
 
-submitBtn.addEventListener("click", () => validateEmail(emailField.value))
+emailField.addEventListener("input", () => {
+    if (!emailField.value) {
+        resetToDefault(emailField)
+        resetToDefault(resultText)
+
+        resultText.textContent = ""
+    }
+})
+
+submitBtn.addEventListener("click", e => {
+    e.preventDefault()
+
+    validateEmail(emailField.value)
+}) 
 
 function validateEmail(userEmail) {
     const emailPattern = /^([a-z\d\._-]+)@([a-z]{4,6})(\.[a-z]{2,3})(\.[a-z]{2,3})?$/i
@@ -44,4 +57,9 @@ const addValidClass = (elem) => {
 const addErrorClass = (elem) => {
     elem.classList.remove("valid")
     elem.classList.add("error")
+}
+
+const resetToDefault = (elem) => {
+    elem.classList.remove("valid")
+    elem.classList.remove("error")
 }
