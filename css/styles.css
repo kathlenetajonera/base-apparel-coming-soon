@@ -69,7 +69,7 @@ main {
     z-index: 999;
 }
 
-form {
+.form {
     position: relative;
     margin-top: 2rem;
 }
@@ -199,7 +199,7 @@ form {
         padding: 2rem 11rem;
     }
 
-    .text p, form {
+    .text p, .form {
         width: 90%;
     }
 }
